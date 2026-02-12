@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 - Architecture MVC & Singleton</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ma Liste de Tâches</h1>
+        
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Nouvelle tâche..." required>
+            
+            <select id="task-category">
+                <option value="travail">Travail</option>
+                <option value="maison">Maison</option>
+                <option value="divers">Divers</option>
+            </select>
+            
+            <button type="submit" id="add-btn">Ajouter</button>
+        </form>
+
+        <div class="filter-container">
+            <label for="filter-category">Filtre : </label>
+            <select id="filter-category">
+                <option value="all">Toutes les tâches</option>
+                <option value="travail">Travail</option>
+                <option value="maison">Maison</option>
+                <option value="divers">Divers</option>
+            </select>
+        </div>
+
+        <ul id="task-list"></ul>
+    </div>
+
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+    <script>
+        // Initialisation de l'app
+        const app = new TaskController(new TaskModel(), new TaskView());
+    </script>
+</body>
+</html>
